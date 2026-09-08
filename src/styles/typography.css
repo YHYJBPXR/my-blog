@@ -5,6 +5,16 @@
   .app-prose {
     @apply prose;
 
+    /* 覆盖 TW Typography 默认的 gray-700，让容器颜色跟随明暗主题
+       （修复块级数学公式在暗色模式下继承 gray-700 导致看不清的问题） */
+    --tw-prose-body: var(--foreground);
+
+    /* 数学公式颜色跟随主题（兜底保护） */
+    .katex,
+    .katex-display {
+      @apply text-foreground;
+    }
+
     h1,
     h2,
     h3,
