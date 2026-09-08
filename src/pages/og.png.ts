@@ -6,12 +6,19 @@ import config from "@/config";
 
 export const GET: APIRoute = async () => {
   // 从 fontsource 包本地读取字体（satori 不支持 woff2，使用 woff）
-  const [regularData, boldData] = await Promise.all([
+  // Maple Mono 负责英文，Noto Sans SC 负责中文（satori 逐字符回退）
+  const [regularData, boldData, scRegularData, scBoldData] = await Promise.all([
     readFile(
       "node_modules/@fontsource/maple-mono/files/maple-mono-latin-400-normal.woff"
     ),
     readFile(
       "node_modules/@fontsource/maple-mono/files/maple-mono-latin-700-normal.woff"
+    ),
+    readFile(
+      "node_modules/@fontsource/noto-sans-sc/files/noto-sans-sc-chinese-simplified-400-normal.woff"
+    ),
+    readFile(
+      "node_modules/@fontsource/noto-sans-sc/files/noto-sans-sc-chinese-simplified-700-normal.woff"
     ),
   ]);
 
@@ -26,7 +33,7 @@ export const GET: APIRoute = async () => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontFamily: "Maple Mono",
+          fontFamily: "Maple Mono, Noto Sans SC",
         },
         children: [
           {
@@ -145,6 +152,18 @@ export const GET: APIRoute = async () => {
         {
           name: "Maple Mono",
           data: boldData,
+          weight: 700,
+          style: "normal",
+        },
+        {
+          name: "Noto Sans SC",
+          data: scRegularData,
+          weight: 400,
+          style: "normal",
+        },
+        {
+          name: "Noto Sans SC",
+          data: scBoldData,
           weight: 700,
           style: "normal",
         },
