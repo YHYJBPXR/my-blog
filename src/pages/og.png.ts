@@ -1,25 +1,17 @@
 import type { APIRoute } from "astro";
 import satori from "satori";
 import sharp from "sharp";
-import { fontData, experimental_getFontFileURL } from "astro:assets";
-import { getFontPathByWeight } from "@/utils/getFontPathByWeight";
+import { readFile } from "node:fs/promises";
 import config from "@/config";
 
-export const GET: APIRoute = async context => {
-  const fonts = fontData["--font-google-sans-code"];
-  const regularFontPath = getFontPathByWeight(fonts, 400);
-  const boldFontPath = getFontPathByWeight(fonts, 700);
-
-  if (regularFontPath === undefined || boldFontPath === undefined) {
-    throw new Error("Cannot find the font path.");
-  }
-
+export const GET: APIRoute = async () => {
+  // 从 fontsource 包本地读取字体（satori 不支持 woff2，使用 woff）
   const [regularData, boldData] = await Promise.all([
-    fetch(experimental_getFontFileURL(regularFontPath, context.url)).then(res =>
-      res.arrayBuffer()
+    readFile(
+      "node_modules/@fontsource/maple-mono/files/maple-mono-latin-400-normal.woff"
     ),
-    fetch(experimental_getFontFileURL(boldFontPath, context.url)).then(res =>
-      res.arrayBuffer()
+    readFile(
+      "node_modules/@fontsource/maple-mono/files/maple-mono-latin-700-normal.woff"
     ),
   ]);
 
@@ -34,7 +26,7 @@ export const GET: APIRoute = async context => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          fontFamily: "Google Sans Code",
+          fontFamily: "Maple Mono",
         },
         children: [
           {
@@ -145,13 +137,13 @@ export const GET: APIRoute = async context => {
       embedFont: true,
       fonts: [
         {
-          name: "Google Sans Code",
+          name: "Maple Mono",
           data: regularData,
           weight: 400,
           style: "normal",
         },
         {
-          name: "Google Sans Code",
+          name: "Maple Mono",
           data: boldData,
           weight: 700,
           style: "normal",
