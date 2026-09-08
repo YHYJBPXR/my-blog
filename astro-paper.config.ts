@@ -24,14 +24,13 @@ export default defineAstroPaperConfig({
     showArchives: true,
     showBackButton: true,
     editPost: {
-      enabled: false,
-      // TODO: 创建 GitHub 仓库后可启用，并加上:
-      // url: "https://github.com/你的用户名/仓库名/edit/main/",
+      enabled: true,
+      url: "https://github.com/YHYJBPXR/my-blog/edit/main/",
     },
     search: "pagefind",
   },
   socials: [
-    { name: "github",   url: "https://github.com/your-username" },
+    { name: "github",   url: "https://github.com/YHYJBPXR" },
     { name: "x",        url: "https://x.com/username" },
     { name: "linkedin", url: "https://www.linkedin.com/in/username/" },
     { name: "mail",     url: "mailto:yourmail@gmail.com" },
