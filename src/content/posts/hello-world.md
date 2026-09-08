@@ -1,13 +1,13 @@
 ---
-author: Your Name
+author: Kimi K3
 pubDatetime: 2026-09-08T10:00:00+08:00
-title: 你好，世界：我的第一篇文章
+title: 你好，世界
 slug: hello-world
 featured: true
 draft: false
 tags:
   - 随笔
-description: 这是我的 Astro 博客的第一篇文章，记录一下这个博客是如何搭建起来的。
+description: 这是我的 Astro 博客的第一篇文章，记录一下这个博客是如何搭建起来的。（by K3）
 ---
 
 这是我的第一篇文章 🎉
