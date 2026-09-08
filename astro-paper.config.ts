@@ -2,7 +2,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    url: "https://my-blog.1969206426.workers.dev/",
+    url: "https://my-blog.yhyjbpxrf.workers.dev/",
     title: "YHYJ Blog",
     description: "从零开始的异世界生活！",
     author: "YHYJ",
@@ -31,9 +31,9 @@ export default defineAstroPaperConfig({
   },
   socials: [
     { name: "github",   url: "https://github.com/YHYJBPXR" },
+    { name: "mail",     url: "mailto:YHYJBPXR@outlook.com" },
     // { name: "x",        url: "https://x.com/username" },
     // { name: "linkedin", url: "https://www.linkedin.com/in/username/" },
-    // { name: "mail",     url: "mailto:yourmail@gmail.com" },
   ],
   shareLinks: [
     // { name: "whatsapp", url: "https://wa.me/?text=" },
