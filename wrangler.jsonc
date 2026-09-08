@@ -1,0 +1,11 @@
+{
+  // Cloudflare Workers 静态资产托管配置
+  // 存在此文件时，wrangler deploy 不会再自动注入 SSR 适配器
+  "name": "my-blog",
+  "compatibility_date": "2026-09-08",
+  "assets": {
+    "directory": "./dist/",
+    // 未匹配路径返回 dist/404.html 并带 404 状态码
+    "not_found_handling": "404-page"
+  }
+}
