@@ -23,8 +23,9 @@ export default defineAstroPaperConfig({
     showArchives: true,
     showBackButton: true,
     editPost: {
-      enabled: true,
-      url: "https://github.com/YHYJBPXR/my-blog/edit/main/",
+      enabled: false,
+      // 如需恢复，设置 enabled: true 并加上:
+      // url: "https://github.com/YHYJBPXR/my-blog/edit/main/",
     },
     search: "pagefind",
   },
