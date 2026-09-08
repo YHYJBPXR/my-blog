@@ -15,11 +15,6 @@
       @apply text-foreground;
     }
 
-    /* 公式字号放大（KaTeX 默认 1.21em） */
-    .katex {
-      font-size: 1.35em;
-    }
-
     h1,
     h2,
     h3,
@@ -150,4 +145,11 @@
       @apply border-border rounded-sm border px-0.5 py-px;
     }
   }
+}
+
+/* 公式字号放大（KaTeX 默认 1.21em）
+   注意：必须放在 @layer 外——katex.min.css 是未分层样式，
+   层叠优先级高于任何 @layer 规则，层内的字号覆盖不会生效 */
+.app-prose .katex {
+  font-size: 1.35em;
 }
