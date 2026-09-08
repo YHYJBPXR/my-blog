@@ -2,8 +2,7 @@ import { defineAstroPaperConfig } from "./src/types/config";
 
 export default defineAstroPaperConfig({
   site: {
-    // TODO: 部署后改为你的实际域名（Cloudflare 分配的 *.workers.dev 或自定义域名）
-    url: "https://example.com/",
+    url: "https://my-blog.1969206426.workers.dev/",
     title: "My Blog",
     description: "A minimal, responsive and SEO-friendly Astro blog.",
     author: "Your Name",
